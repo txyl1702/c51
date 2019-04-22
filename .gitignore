@@ -1,4 +1,7 @@
 *
 !.gitignore
 !README*
+
 !/c51-lcd12864/
+!/c51-lcd12864/*.c
+!/c51-lcd12864/*.h
