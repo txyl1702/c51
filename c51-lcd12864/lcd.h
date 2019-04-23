@@ -24,8 +24,8 @@ extern void lcd_clear(void);
 	@type: 显示的类型，是16*16还是8*16,参数可为LCD_VIEW_16_16，LCD_VIEW_8_16
  */
 extern void lcd_view_string(uchar line, uchar col, const arr_t str, 
-								uchar num, uchar type)
+								uchar num, uchar type);
 
-extern void lcd_view_num(float num, uchar line, uchar col) reentrant
+extern void lcd_view_num(float num, uchar line, uchar col) reentrant;
 
 #endif
