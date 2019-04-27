@@ -3,14 +3,6 @@
 #include "pin.h"
 #include "lcd.h"
 
-#define ARRAY_SIZE(arr)  (sizeof(arr) / sizeof((arr)[0]))
-#define lcd_view_char(line, col, str, num) lcd_view_string(line, col, str, num, LCD_VIEW_8_16)
-#define lcd_view_word(line, col, str, num) lcd_view_string(line, col, str, num, LCD_VIEW_16_16)
-
-typedef  unsigned int uint;
-typedef  unsigned char uchar;
-typedef  uchar (*arr_t)[32];
-
 void delay_ms(uint t)
 {
 	uint i, j;
