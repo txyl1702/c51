@@ -3,14 +3,6 @@
 #include "pin.h"
 #include "lcd.h"
 
-#define ARRAY_SIZE(arr)  (sizeof(arr) / sizeof((arr)[0]))
-#define lcd_view_char(line, col, str, num) lcd_view_string(line, col, str, num, LCD_VIEW_8_16)
-#define lcd_view_word(line, col, str, num) lcd_view_string(line, col, str, num, LCD_VIEW_16_16)
-
-typedef  unsigned int uint;
-typedef  unsigned char uchar;
-typedef  uchar (*arr_t)[32];
-
 void delay_ms(uint t)
 {
 	uint i, j;
@@ -25,20 +17,8 @@ void ctrl_lcd_view(uchar ctrl_cs1, uchar ctrl_cs2)
 	lcd_cs2 = ctrl_cs2;
 }
 
-void lcd_check_busy(void)
-{
-	do {
-		lcd_en = 1;
-		lcd_di = 0;
-		lcd_rw = 1;
-//		LCD_DATA = 0xff;
-//		lcd_en = 0;
-	} while (LCD_DATA & 0x80);
-}
-
 void lcd_write_data(uchar write_data, uchar type)
 {
-//	lcd_check_busy();
 	lcd_di = type;
 	lcd_rw = 0;
 	LCD_DATA = write_data;
